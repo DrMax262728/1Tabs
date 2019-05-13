@@ -1,15 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled, {css} from 'styled-components'
 
+const TabBarItem = ({children, label, activeTab}) => {
 
-const TabBarItem = ({
-	children, label, activeTab, ...attrs
-}) => {
+	const Div = styled.div`
+		height: 100px;
+    width: 100px;
+		
+		${activeTab === label  && css`
+    	background-color: yellow;
+  	`}
+	`;
 
 	return (
-		<div>
+		<Div>
+			{children}
+		</Div>
 
-		</div>
 	)
 
 };
