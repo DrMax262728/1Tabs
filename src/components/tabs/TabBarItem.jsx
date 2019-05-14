@@ -3,11 +3,9 @@ import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 
 const TabBarItem = ({children, label, activeTab}) => {
-
 	const Div = styled.div`
 		height: 0;
     overflow: hidden;
-		
 		${activeTab === label  && css`
     	height: auto;
   	`}
@@ -17,14 +15,13 @@ const TabBarItem = ({children, label, activeTab}) => {
 		<Div>
 			{children}
 		</Div>
-
 	)
 
 };
 
 TabBarItem.propTypes = {
-	children: PropTypes.string.isRequired,
-	label: PropTypes.node,
+	children: PropTypes.node,
+	label: PropTypes.string.isRequired,
 	activeTab: PropTypes.string
 };
 
@@ -32,6 +29,5 @@ TabBarItem.defaultProps = {
 	children: null,
 	activeTab: ""
 };
-
 
 export default TabBarItem;

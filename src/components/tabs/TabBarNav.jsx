@@ -1,12 +1,10 @@
-import React, {Fragment} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
-
 
 const TabBarNav = ({
 	navLabel, className, onChangeActiveTab
 }) => {
-
 	const Button = styled.button`
 		flex: 1;
     background-color: #FFF;
@@ -37,17 +35,14 @@ const TabBarNav = ({
 
 TabBarNav.propTypes = {
 	navLabel: PropTypes.string,
-	className: PropTypes.string,
+	className: PropTypes.bool,
 	onChangeActiveTab: PropTypes.func
 };
 
 TabBarNav.defaultProps = {
-	navLabel: PropTypes.string,
-	classNames: PropTypes.string,
-	onChangeActiveTab: PropTypes.func
+	navLabel: 'Tab',
+	classNames: false,
+	onChangeActiveTab: () => {}
 };
 
 export default TabBarNav;
-
-
-

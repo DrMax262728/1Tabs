@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TabBarNav from "./TabBarNav";
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 
 class TabBar extends React.Component{
 
@@ -43,7 +43,7 @@ class TabBar extends React.Component{
 
 	render() {
 		const {activeTab} = this.state;
-		const {children, className, vertical, ...attrs} = this.props;
+		const {children} = this.props;
 		const DivNav = styled.div`
 			position: relative;
 			display: flex;
