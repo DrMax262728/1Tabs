@@ -6,20 +6,18 @@ const TabBarNav = ({
 	navLabel, className, onChangeActiveTab
 }) => {
 	const Button = styled.button`
-		flex: 1;
-    background-color: #FFF;
-    border: 1px solid #EDEDED;
-    padding: 10px 15px;
+		background-color: #2196f3;
+		border: 1px solid #2196f3;
+    padding: 15px 15px;
     cursor: pointer;
-    border-radius: 5px 5px 0 0;
     overflow: hidden;
     outline: none;
     text-transform: uppercase;
     font-weight: 600;
-	
+    width:150px;
+		color: lightgrey;
 	${className && css`
-    background-color: #7CC6FE;
-    border-bottom-color: transparent;
+    border-bottom: 2px rgb(225, 0, 80) solid;
     color: #FFF;
   	`}
 	`;

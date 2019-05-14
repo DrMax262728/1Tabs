@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import PropTypes from 'prop-types'
 import TabBarNav from "./TabBarNav";
 import styled from 'styled-components'
@@ -48,10 +48,11 @@ class TabBar extends React.Component{
 			position: relative;
 			display: flex;
 			z-index: 2;
+			background-color: #2196f3;
 		`;
 		const DivContainer = styled.div`
 			padding: 20px;
-			min-height: 100px;
+			min-height: 60px;
 			border: 1px solid #EDEDED;
 			border-radius: 0 0 5px 5px;
 			position: relative;
@@ -59,7 +60,7 @@ class TabBar extends React.Component{
 		`;
 
 		return(
-			<div>
+			<Fragment>
 				<DivNav>
 					{this.renderTabs()}
 				</DivNav>
@@ -67,7 +68,7 @@ class TabBar extends React.Component{
 					{React.Children.map(children, child =>
 					React.cloneElement(child,{activeTab}))}
 				</DivContainer>
-			</div>
+			</Fragment>
 		)
 
 	}
