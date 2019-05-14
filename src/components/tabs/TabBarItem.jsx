@@ -5,11 +5,11 @@ import styled, {css} from 'styled-components'
 const TabBarItem = ({children, label, activeTab}) => {
 
 	const Div = styled.div`
-		height: 100px;
-    width: 100px;
+		height: 0;
+    overflow: hidden;
 		
 		${activeTab === label  && css`
-    	background-color: yellow;
+    	height: auto;
   	`}
 	`;
 
