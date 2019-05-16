@@ -1,26 +1,10 @@
-import React from 'react'
-import Sandbox from "./components/tabs/Sandbox";
-import styled from 'styled-components'
-
-
-const Div = styled.div`
-	width: 700px;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: #eeeeee;
-`;
-
-const DivTab = styled.div`
-	background-color: #fff;
-`;
-
+import React from "react";
+import SimpleTabs from "./containers/SimpleTabs";
 
 const App = () => (
-	<Div>
-		<DivTab>
-			<Sandbox/>
-		</DivTab>
-	</Div>
+  <div>
+    <SimpleTabs />
+  </div>
 );
 
 export default App;

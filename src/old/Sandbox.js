@@ -1,13 +1,13 @@
-import React, {Fragment} from 'react';
-import TabBarItem from './TabBarItem';
+import React, { Fragment } from "react";
+import TabBarItem from "./TabBarItem";
 import TabBar from "./TabBar";
 
 const Sandbox = () => (
   <Fragment>
     <TabBar>
       <TabBarItem label="Tab 1">
-				<p>Item 1</p>
-			</TabBarItem>
+        <p>Item 1</p>
+      </TabBarItem>
       <TabBarItem label="Tab 2">
         <p>Item 2</p>
       </TabBarItem>
