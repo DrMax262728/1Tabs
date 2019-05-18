@@ -8,7 +8,7 @@ class SimpleTabs extends React.Component {
     value: 0
   };
 
-  handleChange = (event, value) => {
+  handleChange = value => {
     this.setState({ value });
   };
 
@@ -17,10 +17,10 @@ class SimpleTabs extends React.Component {
 
     return (
       <div>
-        <Tabs value={value} onChange={this.handleChange}>
-          <Tab label="tab1" />
-          <Tab label="tab2" />
-          <Tab label="tab3" />
+        <Tabs>
+          <Tab label="tab1" value={0} click={this.handleChange} />
+          <Tab label="tab2" value={1} click={this.handleChange} />
+          <Tab label="tab3" value={2} click={this.handleChange} />
         </Tabs>
         {value === 0 && <Content>Item One</Content>}
         {value === 1 && <Content>Item Two</Content>}
