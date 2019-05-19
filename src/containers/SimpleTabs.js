@@ -1,7 +1,9 @@
 import React from "react";
 import Content from "../components/Content";
-import Tabs from "../components/Tabs";
 import Tab from "../components/Tab";
+
+import Tabs from "../styles/tabs/Tabs";
+import TabList from "../styles/tabs/TabsStyled";
 
 class SimpleTabs extends React.Component {
   state = {
@@ -14,18 +16,42 @@ class SimpleTabs extends React.Component {
 
   render() {
     const { value } = this.state;
-
+    let data = [
+      {
+        active: value === 0,
+        label: "tab1",
+        id: 0,
+        content: "Item One"
+      },
+      {
+        active: value === 1,
+        label: "tab2",
+        id: 1,
+        content: "Item Two"
+      },
+      {
+        active: value === 2,
+        label: "tab3",
+        id: 2,
+        content: "Item Three"
+      }
+    ];
     return (
-      <div>
-        <Tabs>
-          <Tab label="tab1" value={0} click={this.handleChange} />
-          <Tab label="tab2" value={1} click={this.handleChange} />
-          <Tab label="tab3" value={2} click={this.handleChange} />
-        </Tabs>
-        {value === 0 && <Content>Item One</Content>}
-        {value === 1 && <Content>Item Two</Content>}
-        {value === 2 && <Content>Item Three</Content>}
-      </div>
+      <Tabs>
+        <TabList>
+          {data.map(item => (
+            <Tab
+              label={item.label}
+              active={item.active}
+              value={item.id}
+              click={this.handleChange}
+            />
+          ))}
+        </TabList>
+        {data.map(
+          item => value === item.id && <Content>{item.content}</Content>
+        )}
+      </Tabs>
     );
   }
 }
