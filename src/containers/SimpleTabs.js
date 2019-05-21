@@ -1,11 +1,12 @@
 import React from "react";
-import Content from "../components/Content";
-import Tab from "../components/Tab";
+import Content from "../components/tabs/Content";
+import Tab from "../components/tabs/Tab";
 
 import Tabs from "../styles/tabs/Tabs";
 import TabList from "../styles/tabs/TabsStyled";
 
 import { data } from "../constants/index";
+import ExpansionPanel from "./ExpansionPanel";
 
 class SimpleTabs extends React.Component {
   state = {
@@ -31,7 +32,15 @@ class SimpleTabs extends React.Component {
         </TabList>
         {data.map(
           item =>
-            this.state.value === item.name && <Content>{item.content}</Content>
+            this.state.value === item.name && (
+              <Content>
+                {item.content !== "Expansion" ? (
+                  item.content
+                ) : (
+                  <ExpansionPanel />
+                )}
+              </Content>
+            )
         )}
       </Tabs>
     );

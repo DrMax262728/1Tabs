@@ -5,9 +5,9 @@ export const data = [
     content: "Item One"
   },
   {
-    label: "tab2",
+    label: "Accordion",
     name: "second",
-    content: "Item Two"
+    content: "Expansion"
   },
   {
     label: "tab3",
