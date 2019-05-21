@@ -14,7 +14,7 @@ class ExpansionPanel extends React.Component {
 
   render() {
     return (
-      <Panel>
+      <Panel active={this.state.isOpen}>
         <ExpansionPanelSummary onClick={this.handleChange}>
           {this.props.name}
         </ExpansionPanelSummary>

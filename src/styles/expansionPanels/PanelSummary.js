@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const PanelSummary = styled.div`
-	display: flex;
-	justify-content: flex-end;
-	background-color: yellow;
 	padding 0 24px;
 	cursor: pointer;
+	display: flex;
+	justify-content: flex-end;
 `;
 
 export const Header = styled.div`
@@ -13,7 +12,7 @@ export const Header = styled.div`
 `;
 
 export const AngleDown = styled.div`
-  color: green;
+  color: rgba(0, 0, 0, 0.54);
   width: 48px;
   display: flex;
   align-items: center;

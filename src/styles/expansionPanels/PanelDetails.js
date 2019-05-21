@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-export const PanelDetails = styled.div`
-  background-color: grey;
-`;
+export const PanelDetails = styled.div``;
 
 export const Content = styled.div`
   padding: 0 24px;
