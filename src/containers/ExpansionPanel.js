@@ -2,7 +2,6 @@ import React from "react";
 import ExpansionPanelSummary from "../components/expansionPanels/ExpansionPanelSummary";
 import Panel from "../styles/expansionPanels/Panel";
 import ExpansionPanelDetails from "../components/expansionPanels/ExpansionPanelDetails";
-import { PanelDetails } from "../styles/expansionPanels/PanelDetails";
 
 class ExpansionPanel extends React.Component {
   state = {
@@ -17,15 +16,10 @@ class ExpansionPanel extends React.Component {
     return (
       <Panel>
         <ExpansionPanelSummary onClick={this.handleChange}>
-          Expansion Panel 1
+          {this.props.name}
         </ExpansionPanelSummary>
         {this.state.isOpen && (
-          <ExpansionPanelDetails>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci
-            animi dicta impedit inventore nostrum optio pariatur quas quis sint?
-            Architecto culpa eos itaque iure laborum magnam quaerat temporibus,
-            tenetur.
-          </ExpansionPanelDetails>
+          <ExpansionPanelDetails>{this.props.content}</ExpansionPanelDetails>
         )}
       </Panel>
     );
