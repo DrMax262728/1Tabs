@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const PanelSummary = styled.div`
-	padding 0 24px;
-	cursor: pointer;
-	display: flex;
-	justify-content: flex-end;
+  padding-left: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export const Header = styled.div`

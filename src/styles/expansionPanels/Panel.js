@@ -9,6 +9,11 @@ export default styled.div`
     border-top-right-radius: 4px;
   }
 
+  &:last-child {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
   ${props =>
     props.active &&
     css`
@@ -16,6 +21,9 @@ export default styled.div`
 
       &:first-child {
         margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
       }
     `}
 `;
