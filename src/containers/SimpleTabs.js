@@ -26,6 +26,7 @@ class SimpleTabs extends React.Component {
               active={this.state.value === item.key}
               value={item.key}
               click={this.handleChange}
+              key={item.key}
             />
           ))}
         </TabList>
@@ -38,7 +39,7 @@ class SimpleTabs extends React.Component {
                   : dataPanels.map(item => (
                       <ExpansionPanel
                         key={item.key}
-                        name={item.name}
+                        name={item.label}
                         content={item.content}
                       />
                     ))}

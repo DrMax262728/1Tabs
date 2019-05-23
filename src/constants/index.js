@@ -18,17 +18,17 @@ export const dataTabs = [
 
 export const dataPanels = [
   {
-    name: "Expansion Panel 1",
+    label: "Expansion Panel 1",
     content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
     key: "first"
   },
   {
-    name: "Expansion Panel 2",
+    label: "Expansion Panel 2",
     content: "Lorem ipsum dolor 2 sit amet, consectetur adipisicing elit.",
     key: "second"
   },
   {
-    name: "Expansion Panel 3",
+    label: "Expansion Panel 3",
     content: "Lorem ipsum dolor 3 sit amet, consectetur adipisicing elit.",
     key: "third"
   }
