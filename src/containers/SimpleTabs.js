@@ -23,20 +23,24 @@ class SimpleTabs extends React.Component {
           {dataTabs.map(item => (
             <Tab
               label={item.label}
-              active={this.state.value === item.name}
-              value={item.name}
+              active={this.state.value === item.key}
+              value={item.key}
               click={this.handleChange}
             />
           ))}
         </TabList>
         {dataTabs.map(
           item =>
-            this.state.value === item.name && (
-              <Content>
+            this.state.value === item.key && (
+              <Content key={item.key}>
                 {item.content !== "Expansion"
                   ? item.content
                   : dataPanels.map(item => (
-                      <ExpansionPanel name={item.name} content={item.content} />
+                      <ExpansionPanel
+                        key={item.key}
+                        name={item.name}
+                        content={item.content}
+                      />
                     ))}
               </Content>
             )

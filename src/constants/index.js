@@ -1,17 +1,17 @@
 export const dataTabs = [
   {
     label: "tab1",
-    name: "first",
+    key: "first",
     content: "Item One"
   },
   {
     label: "Accordion",
-    name: "second",
+    key: "second",
     content: "Expansion"
   },
   {
     label: "tab3",
-    name: "third",
+    key: "third",
     content: "Item Three"
   }
 ];
@@ -19,14 +19,17 @@ export const dataTabs = [
 export const dataPanels = [
   {
     name: "Expansion Panel 1",
-    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+    content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    key: "first"
   },
   {
     name: "Expansion Panel 2",
-    content: "Lorem ipsum dolor 2 sit amet, consectetur adipisicing elit."
+    content: "Lorem ipsum dolor 2 sit amet, consectetur adipisicing elit.",
+    key: "second"
   },
   {
     name: "Expansion Panel 3",
-    content: "Lorem ipsum dolor 3 sit amet, consectetur adipisicing elit."
+    content: "Lorem ipsum dolor 3 sit amet, consectetur adipisicing elit.",
+    key: "third"
   }
 ];
