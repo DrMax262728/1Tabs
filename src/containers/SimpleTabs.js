@@ -5,7 +5,7 @@ import { dataTabs, dataPanels } from "../constants";
 
 import Tabs from "../styles/tabs/Tabs";
 import TabList from "../styles/tabs/TabsStyled";
-import ExpansionPanel from "./ExpansionPanel";
+import Check from "../components/Check";
 
 class SimpleTabs extends React.Component {
   state = {
@@ -34,15 +34,7 @@ class SimpleTabs extends React.Component {
           item =>
             this.state.value === item.key && (
               <Content key={item.key}>
-                {item.content !== "Expansion"
-                  ? item.content
-                  : dataPanels.map(item => (
-                      <ExpansionPanel
-                        key={item.key}
-                        name={item.label}
-                        content={item.content}
-                      />
-                    ))}
+                <Check content={item.content} />
               </Content>
             )
         )}
