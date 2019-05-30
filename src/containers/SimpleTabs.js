@@ -1,11 +1,11 @@
 import React from "react";
 import Content from "../components/tabs/Content";
 import Tab from "../components/tabs/Tab";
-import { dataTabs, dataPanels } from "../constants";
+import { dataTabs } from "../constants";
 
 import Tabs from "../styles/tabs/Tabs";
 import TabList from "../styles/tabs/TabsStyled";
-import Check from "../components/Check";
+import Check from "../components/tabs/Check";
 
 class SimpleTabs extends React.Component {
   state = {

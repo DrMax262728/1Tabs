@@ -34,6 +34,17 @@ export const dataPanels = [
   }
 ];
 
+export const dataTableHeaders = [
+  "Name",
+  "Height",
+  "Mass",
+  "Hair Color",
+  "Skin Color",
+  "Eye Color",
+  "Birth Year",
+  "Gender"
+];
+
 export const dataTable = [
   {
     name: "Luke Skywalker",
