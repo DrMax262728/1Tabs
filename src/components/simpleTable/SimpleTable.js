@@ -1,11 +1,11 @@
 import React from "react";
 import Table from "../../styles/simpleTable/Table";
 import Th from "../../styles/simpleTable/Th";
+import Td from "../../styles/simpleTable/Td";
 import TableHead from "../../styles/simpleTable/TableHead";
 import TableBody from "../../styles/simpleTable/TableBody";
-import { dataTable, dataTableHeaders } from "../../constants";
+import { dataTable, dataTableHeaders, params } from "../../constants";
 import Row from "../../styles/simpleTable/Row";
-import Td from "../../styles/simpleTable/Td";
 
 const SimpleTable = () => {
   return (
@@ -21,13 +21,9 @@ const SimpleTable = () => {
         {dataTable.map(row => (
           <Row>
             <Th>{row.name}</Th>
-            <Td>{row.height}</Td>
-            <Td>{row.mass}</Td>
-            <Td>{row.hair_color}</Td>
-            <Td>{row.skin_color}</Td>
-            <Td>{row.eye_color}</Td>
-            <Td>{row.birth_year}</Td>
-            <Td>{row.gender}</Td>
+            {params.map(param => (
+              <Td>{row[param]}</Td>
+            ))}
           </Row>
         ))}
       </TableBody>

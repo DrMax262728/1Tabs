@@ -10,7 +10,7 @@ export const dataTabs = [
     content: "Expansion"
   },
   {
-    label: "tab3",
+    label: "Table",
     key: "third",
     content: "SimpleTable"
   }
@@ -43,6 +43,16 @@ export const dataTableHeaders = [
   "Eye Color",
   "Birth Year",
   "Gender"
+];
+
+export const params = [
+  "height",
+  "mass",
+  "hair_color",
+  "skin_color",
+  "eye_color",
+  "birth_year",
+  "gender"
 ];
 
 export const dataTable = [
