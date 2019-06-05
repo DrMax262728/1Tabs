@@ -1,5 +1,5 @@
 import React from "react";
-import { dataPanels } from "../../constants";
+import { dataPanels, dataTable, dataTableHeaders } from "../../constants";
 import ExpansionPanel from "../../containers/ExpansionPanel";
 import SimpleTable from "../simpleTable/SimpleTable";
 
@@ -16,7 +16,7 @@ const Check = ({ content }) => {
     }
 
     case "SimpleTable": {
-      return <SimpleTable />;
+      return <SimpleTable data={dataTable} columns={dataTableHeaders} />;
     }
 
     default: {

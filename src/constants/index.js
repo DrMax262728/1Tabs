@@ -45,16 +45,6 @@ export const dataTableHeaders = [
   "Gender"
 ];
 
-export const params = [
-  "height",
-  "mass",
-  "hair_color",
-  "skin_color",
-  "eye_color",
-  "birth_year",
-  "gender"
-];
-
 export const dataTable = [
   {
     name: "Luke Skywalker",
