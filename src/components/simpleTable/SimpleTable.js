@@ -21,12 +21,9 @@ const SimpleTable = ({ data, columns, prefix }) => {
       <TableBody>
         {data.map((row, index) => (
           <Tr key={index + "-body-" + prefix}>
-            <Th>{row.name}</Th>
-            {Object.keys(row)
-              .slice(1)
-              .map((param, index) => (
-                <Td key={index + "-body-" + prefix}>{row[param]}</Td>
-              ))}
+            {Object.keys(row).map((param, index) => (
+              <Td key={index + "-body-" + prefix}>{row[param]}</Td>
+            ))}
           </Tr>
         ))}
       </TableBody>
