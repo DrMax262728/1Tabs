@@ -16,7 +16,13 @@ const Check = ({ content }) => {
     }
 
     case "SimpleTable": {
-      return <SimpleTable data={dataTable} columns={dataTableHeaders} />;
+      return (
+        <SimpleTable
+          data={dataTable}
+          columns={dataTableHeaders}
+          prefix={"users"}
+        />
+      );
     }
 
     default: {

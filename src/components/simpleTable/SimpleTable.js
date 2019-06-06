@@ -8,10 +8,7 @@ import {
   Td
 } from "../../styles/simpleTable/Table";
 
-const SimpleTable = ({ data, columns }) => {
-  let params = columns.slice(1);
-  params = params.map(elem => elem.toLowerCase().replace(" ", "_"));
-  const prefix = "table";
+const SimpleTable = ({ data, columns, prefix }) => {
   return (
     <Table>
       <TableHead>
@@ -25,9 +22,11 @@ const SimpleTable = ({ data, columns }) => {
         {data.map((row, index) => (
           <Tr key={index + "-body-" + prefix}>
             <Th>{row.name}</Th>
-            {params.map((param, index) => (
-              <Td key={index + "-body-" + prefix}>{row[param]}</Td>
-            ))}
+            {Object.keys(row)
+              .slice(1)
+              .map((param, index) => (
+                <Td key={index + "-body-" + prefix}>{row[param]}</Td>
+              ))}
           </Tr>
         ))}
       </TableBody>
