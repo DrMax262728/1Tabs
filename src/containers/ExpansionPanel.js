@@ -2,28 +2,17 @@ import React from "react";
 import ExpansionPanelSummary from "../components/expansionPanels/ExpansionPanelSummary";
 import Panel from "../styles/expansionPanels/Panel";
 import ExpansionPanelDetails from "../components/expansionPanels/ExpansionPanelDetails";
+import withAccordion from "../hoc/withAccordion";
 
-class ExpansionPanel extends React.Component {
-  state = {
-    isOpen: false
-  };
+const ExpansionPanel = ({ name, content, isOpen, handleChange }) => {
+  return (
+    <Panel active={isOpen}>
+      <ExpansionPanelSummary onClick={handleChange}>
+        {name}
+      </ExpansionPanelSummary>
+      {isOpen && <ExpansionPanelDetails>{content}</ExpansionPanelDetails>}
+    </Panel>
+  );
+};
 
-  handleChange = () => {
-    this.setState(state => ({ isOpen: !state.isOpen }));
-  };
-
-  render() {
-    return (
-      <Panel active={this.state.isOpen}>
-        <ExpansionPanelSummary onClick={this.handleChange}>
-          {this.props.name}
-        </ExpansionPanelSummary>
-        {this.state.isOpen && (
-          <ExpansionPanelDetails>{this.props.content}</ExpansionPanelDetails>
-        )}
-      </Panel>
-    );
-  }
-}
-
-export default ExpansionPanel;
+export default withAccordion(ExpansionPanel);

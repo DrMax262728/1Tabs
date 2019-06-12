@@ -6,41 +6,36 @@ import { dataTabs } from "../constants";
 import Tabs from "../styles/tabs/Tabs";
 import TabList from "../styles/tabs/TabsStyled";
 import Check from "../components/tabs/Check";
+import WithTabs from "../renderProps/withTabs";
 
-class SimpleTabs extends React.Component {
-  state = {
-    value: "first"
-  };
-
-  handleChange = value => {
-    this.setState({ value });
-  };
-
-  render() {
-    return (
-      <Tabs>
-        <TabList>
-          {dataTabs.map(item => (
-            <Tab
-              label={item.label}
-              active={this.state.value === item.key}
-              value={item.key}
-              click={this.handleChange}
-              key={item.key}
-            />
-          ))}
-        </TabList>
-        {dataTabs.map(
-          item =>
-            this.state.value === item.key && (
-              <Content key={item.key}>
-                <Check content={item.content} />
-              </Content>
-            )
-        )}
-      </Tabs>
-    );
-  }
-}
+const SimpleTabs = () => {
+  return (
+    <WithTabs>
+      {(stateValues, handleChange) => (
+        <Tabs>
+          <TabList>
+            {dataTabs.map(item => (
+              <Tab
+                label={item.label}
+                active={stateValues.value === item.key}
+                value={item.key}
+                click={handleChange}
+                key={item.key}
+              />
+            ))}
+          </TabList>
+          {dataTabs.map(
+            item =>
+              stateValues.value === item.key && (
+                <Content key={item.key}>
+                  <Check content={item.content} />
+                </Content>
+              )
+          )}
+        </Tabs>
+      )}
+    </WithTabs>
+  );
+};
 
 export default SimpleTabs;
