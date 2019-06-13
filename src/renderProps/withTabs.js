@@ -10,7 +10,7 @@ class WithTabs extends React.Component {
   };
 
   render() {
-    const children = this.props.children;
+    const { children } = this.props;
     return children(this.state, this.handleChange);
   }
 }
