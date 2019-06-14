@@ -11,13 +11,13 @@ import WithTabs from "../renderProps/withTabs";
 const SimpleTabs = () => {
   return (
     <WithTabs>
-      {(stateValues, handleChange) => (
+      {(stateValue, handleChange) => (
         <Tabs>
           <TabList>
             {dataTabs.map(item => (
               <Tab
                 label={item.label}
-                active={stateValues.value === item.key}
+                active={stateValue === item.key}
                 value={item.key}
                 click={handleChange}
                 key={item.key}
@@ -26,7 +26,7 @@ const SimpleTabs = () => {
           </TabList>
           {dataTabs.map(
             item =>
-              stateValues.value === item.key && (
+              stateValue === item.key && (
                 <Content key={item.key}>
                   <Check content={item.content} />
                 </Content>

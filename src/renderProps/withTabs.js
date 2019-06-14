@@ -1,18 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
-class WithTabs extends React.Component {
-  state = {
-    value: "first"
-  };
-
-  handleChange = value => {
-    this.setState({ value });
-  };
-
-  render() {
-    const { children } = this.props;
-    return children(this.state, this.handleChange);
-  }
-}
+const WithTabs = ({ children }) => {
+  const [value, setValue] = useState("first");
+  return children(value, value => setValue(value));
+};
 
 export default WithTabs;
