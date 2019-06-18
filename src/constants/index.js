@@ -147,3 +147,13 @@ export const dataTable = [
     gender: "male"
   }
 ];
+export const themes = {
+  light: {
+    color: "#000000",
+    background: "#DCDCDC"
+  },
+  dark: {
+    color: "#ffffff",
+    background: "#696969"
+  }
+};

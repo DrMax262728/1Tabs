@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Content from "../components/tabs/Content";
 import Tab from "../components/tabs/Tab";
-import { dataTabs } from "../constants";
+import { dataTabs, themes } from "../constants";
 
 import Tabs from "../styles/tabs/Tabs";
 import TabList from "../styles/tabs/TabsStyled";
 import Check from "../components/tabs/Check";
 import WithTabs from "../renderProps/withTabs";
 
+export const ThemeContext = React.createContext(themes.light);
+
 const SimpleTabs = () => {
+  const [theme, setTheme] = useState(themes.light);
   return (
     <WithTabs>
       {(stateValue, handleChange) => (
@@ -24,14 +27,16 @@ const SimpleTabs = () => {
               />
             ))}
           </TabList>
-          {dataTabs.map(
-            item =>
-              stateValue === item.key && (
-                <Content key={item.key}>
-                  <Check content={item.content} />
-                </Content>
-              )
-          )}
+          <ThemeContext.Provider value={{ theme, setTheme }}>
+            {dataTabs.map(
+              item =>
+                stateValue === item.key && (
+                  <Content key={item.key}>
+                    <Check content={item.content} />
+                  </Content>
+                )
+            )}
+          </ThemeContext.Provider>
         </Tabs>
       )}
     </WithTabs>

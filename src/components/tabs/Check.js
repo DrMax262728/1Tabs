@@ -1,9 +1,16 @@
-import React from "react";
-import { dataPanels, dataTable, dataTableHeaders } from "../../constants";
+import React, { Fragment, useContext, useState } from "react";
+import {
+  dataPanels,
+  dataTable,
+  dataTableHeaders,
+  themes
+} from "../../constants";
 import ExpansionPanel from "../../containers/ExpansionPanel";
 import SimpleTable from "../simpleTable/SimpleTable";
+import { ThemeContext } from "../../containers/SimpleTabs";
 
 const Check = ({ content }) => {
+  const { theme, setTheme } = useContext(ThemeContext);
   switch (content) {
     case "Expansion": {
       return dataPanels.map(item => (
@@ -17,11 +24,20 @@ const Check = ({ content }) => {
 
     case "SimpleTable": {
       return (
-        <SimpleTable
-          data={dataTable}
-          columns={dataTableHeaders}
-          prefix={"users"}
-        />
+        <Fragment>
+          <SimpleTable
+            data={dataTable}
+            columns={dataTableHeaders}
+            prefix={"users"}
+          />
+          <button
+            onClick={() =>
+              setTheme(theme === themes.dark ? themes.light : themes.dark)
+            }
+          >
+            Change
+          </button>
+        </Fragment>
       );
     }
 
