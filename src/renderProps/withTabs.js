@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const WithTabs = ({ children }) => {
   const [value, setValue] = useState("first");

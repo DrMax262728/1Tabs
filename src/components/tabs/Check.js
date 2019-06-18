@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext } from "react";
 import {
   dataPanels,
   dataTable,
@@ -8,6 +8,7 @@ import {
 import ExpansionPanel from "../../containers/ExpansionPanel";
 import SimpleTable from "../simpleTable/SimpleTable";
 import { ThemeContext } from "../../containers/SimpleTabs";
+import BtnChangeTheme from "../../styles/expansionPanels/BtnChangeTheme";
 
 const Check = ({ content }) => {
   const { theme, setTheme } = useContext(ThemeContext);
@@ -30,13 +31,13 @@ const Check = ({ content }) => {
             columns={dataTableHeaders}
             prefix={"users"}
           />
-          <button
+          <BtnChangeTheme
             onClick={() =>
               setTheme(theme === themes.dark ? themes.light : themes.dark)
             }
           >
-            Change
-          </button>
+            Change Theme
+          </BtnChangeTheme>
         </Fragment>
       );
     }
