@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { connect } from "react-redux";
+import { setValue } from "../store/actions";
 
-const WithTabs = ({ children }) => {
-  const [value, setValue] = useState("first");
-  return children(value, value => setValue(value));
+const WithTabs = props => {
+  return props.children(props.storeValue, value => props.setValue(value));
 };
 
-export default WithTabs;
+const mapStateToProps = store => {
+  console.log(store);
+  return {
+    storeValue: store.value
+  };
+};
+
+const mapDispatchToState = {
+  setValue
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToState
+)(WithTabs);
