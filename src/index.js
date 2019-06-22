@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import * as serviceWorker from "./serviceWorker";
-import SimpleTabs from "./containers/SimpleTabs";
-import configureStore from "./store";
+import "index.css";
+import * as serviceWorker from "serviceWorker";
+import SimpleTabs from "containers/SimpleTabs";
+import configureStore from "store";
 import { Provider } from "react-redux";
 
 const store = configureStore();

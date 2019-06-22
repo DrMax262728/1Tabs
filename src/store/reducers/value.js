@@ -1,4 +1,4 @@
-import { SET_VALUE } from "../types";
+import { SET_VALUE } from "store/types";
 
 export default (state = "first", action) => {
   switch (action.type) {
