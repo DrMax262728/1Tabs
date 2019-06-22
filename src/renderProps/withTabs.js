@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { setValue } from "../store/actions";
+import { setValue } from "../store/actions/setValue";
 
 const WithTabs = props => {
   return props.children(props.storeValue, value => props.setValue(value));
