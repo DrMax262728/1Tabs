@@ -1,9 +1,12 @@
-import { createStore } from "redux";
-import rootReducer from "store/reducers";
+import { combineReducers } from "redux";
+import tabs from "./modules/tabs";
+import accordion from "./modules/accordion";
 
-export default function configureStore() {
-  return createStore(
-    rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
-}
+//REDUCERS
+
+const rootReducer = combineReducers({
+  tabs,
+  accordion
+});
+
+export default rootReducer;

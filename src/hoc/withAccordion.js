@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import { actionPanel } from "../store/modules/accordion";
 
 const withAccordion = ExpansionPanel => {
-  return props => {
-    const [isOpen, setIsOpen] = useState(false);
-    return (
-      <ExpansionPanel
-        isOpen={isOpen}
-        handleChange={() => setIsOpen(!isOpen)}
-        {...props}
-      />
-    );
-  };
+  return props => (
+    <ExpansionPanel
+      isOpen={props.isOpen}
+      handleChange={props.action}
+      {...props}
+    />
+  );
+};
+const mapStateToProps = state => ({
+  isOpen: state.accordion.activePanel
+});
+
+const mapDispatchToProps = {
+  action: actionPanel
 };
 
-export default withAccordion;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withAccordion);

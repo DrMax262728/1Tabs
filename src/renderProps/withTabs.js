@@ -1,19 +1,18 @@
 import { connect } from "react-redux";
-import { setValue } from "../store/actions/setValue";
+import { actionTabs } from "../store/modules/tabs";
 
-const WithTabs = props => {
-  return props.children(props.storeValue, value => props.setValue(value));
+const WithTabs = ({ children, activeTab, handleActionTabs }) => {
+  return children(activeTab, value => handleActionTabs(value));
 };
 
-const mapStateToProps = store => {
-  console.log(store);
+const mapStateToProps = state => {
   return {
-    storeValue: store.value
+    activeTab: state.tabs.activeTab
   };
 };
 
 const mapDispatchToState = {
-  setValue
+  handleActionTabs: actionTabs
 };
 
 export default connect(
