@@ -1,16 +1,19 @@
-import { createAction, handleActions } from "redux-actions";
-
 const SET_ACCORDION = "SET_ACCORDION";
 const initialStateAcc = { activePanel: false };
 
-export const actionPanel = createAction(SET_ACCORDION);
+export const actionPanel = panel => ({ type: SET_ACCORDION, payload: panel });
 
-export default handleActions(
-  {
-    [SET_ACCORDION]: state => ({
-      ...state,
-      activePanel: !state.activePanel
-    })
-  },
-  initialStateAcc
-);
+const panel = (state = initialStateAcc, action) => {
+  switch (action.type) {
+    case SET_ACCORDION: {
+      return {
+        ...state,
+        activePanel: action.payload
+      };
+    }
+    default:
+      return state;
+  }
+};
+
+export default panel;
