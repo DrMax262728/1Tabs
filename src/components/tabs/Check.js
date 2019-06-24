@@ -14,9 +14,10 @@ const Check = ({ content }) => {
   const { theme, setTheme } = useContext(ThemeContext);
   switch (content) {
     case "Expansion": {
-      return dataPanels.map(item => (
+      return dataPanels.map((item, index) => (
         <ExpansionPanel
           key={item.key}
+          index={index}
           name={item.label}
           content={item.content}
         />

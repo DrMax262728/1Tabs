@@ -1,12 +1,12 @@
 import { combineReducers } from "redux";
 import tabs from "./modules/tabs";
-import accordion from "./modules/accordion";
+import panels from "./modules/panels";
 
 //REDUCERS
 
 const rootReducer = combineReducers({
   tabs,
-  accordion
+  panels
 });
 
 export default rootReducer;

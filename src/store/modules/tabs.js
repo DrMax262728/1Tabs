@@ -1,22 +1,20 @@
+import { createAction, handleActions } from "redux-actions";
+
 // CONSTANTS
 const SET_TABS = "SET_TABS";
 const initialStateTabs = { activeTab: "first" };
 
 //ACTIONS
-export const actionTabs = tab => ({ type: SET_TABS, payload: tab });
+export const actionTabs = createAction(SET_TABS);
 
 //REDUCERS
-const tabs = (state = initialStateTabs, action) => {
-  switch (action.type) {
-    case SET_TABS: {
-      return {
-        ...state,
-        activeTab: state.activeTab === action.payload ? null : action.payload
-      };
-    }
-    default:
-      return state;
-  }
-};
 
-export default tabs;
+export default handleActions(
+  {
+    [SET_TABS]: (state, action) => ({
+      ...state,
+      activeTab: state.activeTab === action.payload ? null : action.payload
+    })
+  },
+  initialStateTabs
+);
