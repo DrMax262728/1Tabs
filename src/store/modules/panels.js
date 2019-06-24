@@ -7,8 +7,6 @@ const initialStateAcc = [];
 
 dataPanels.map((el, index) => initialStateAcc.push({ index, status: false }));
 
-console.log(initialStateAcc);
-
 export const actionPanelToggle = createAction(SET_ACCORDION);
 
 export default handleActions(
