@@ -1,21 +1,12 @@
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actionTabs } from "../store/modules/tabs";
 
-const WithTabs = ({ children, activeTab, handleActiveTabs }) => {
+const WithTabs = ({ children }) => {
+  const activeTab = useSelector(state => state.tabs.activeTab);
+  const dispatch = useDispatch();
+  const handleActiveTabs = args => dispatch(actionTabs(args));
+
   return children(activeTab, value => handleActiveTabs(value));
 };
 
-const mapStateToProps = state => {
-  return {
-    activeTab: state.tabs.activeTab
-  };
-};
-
-const mapDispatchToState = {
-  handleActiveTabs: actionTabs
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToState
-)(WithTabs);
+export default WithTabs;

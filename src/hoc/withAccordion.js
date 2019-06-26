@@ -1,11 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
 import { actionPanelToggle } from "../store/modules/panels";
-import { compose } from "redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const withAccordion = ExpansionPanel => {
   return props => {
-    const { index, accordion, actionToggle } = props;
+    const accordion = useSelector(state => state.panels);
+    const dispatch = useDispatch();
+    const actionToggle = args => dispatch(actionPanelToggle(args));
+    const { index } = props;
     const status = accordion[index].status;
     return (
       <ExpansionPanel
@@ -17,22 +19,4 @@ const withAccordion = ExpansionPanel => {
   };
 };
 
-const mapStateToProps = state => {
-  return {
-    accordion: state.panels
-  };
-};
-
-const mapDispatchToProps = {
-  actionToggle: actionPanelToggle
-};
-
-const composedWithAccordion = compose(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  ),
-  withAccordion
-);
-
-export default composedWithAccordion;
+export default withAccordion;
