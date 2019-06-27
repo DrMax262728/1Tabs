@@ -10,18 +10,13 @@ import SimpleTable from "../simpleTable/SimpleTable";
 import { ThemeContext } from "../../containers/SimpleTabs";
 import BtnChangeTheme from "../../styles/expansionPanels/BtnChangeTheme";
 
-import { connect } from "react-redux";
-import { actionPanelToggle } from "../../store/modules/panels";
-
-const Check = ({ content, accordion, actionToggle }) => {
+const Check = ({ content }) => {
   const { theme, setTheme } = useContext(ThemeContext);
 
   switch (content) {
     case "Expansion": {
       return dataPanels.map((item, index) => (
         <ExpansionPanel
-          accordion={accordion}
-          actionToggle={actionToggle}
           key={item.key}
           index={index}
           name={item.label}
@@ -55,17 +50,4 @@ const Check = ({ content, accordion, actionToggle }) => {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    accordion: state.panels
-  };
-};
-
-const mapDispatchToProps = {
-  actionToggle: actionPanelToggle
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Check);
+export default Check;

@@ -1,16 +1,38 @@
 import React from "react";
+import { actionPanelToggle } from "../store/modules/panels";
+import { connect } from "react-redux";
+import ExpansionPanel from "../containers/ExpansionPanel";
+import { compose } from "redux";
 
 const withAccordion = ExpansionPanel => {
-  return props => {
-    const status = props.accordion[props.index].status;
+  return ({ accordion, actionToggle, index, ...rest }) => {
+    const status = accordion[index].status;
     return (
       <ExpansionPanel
         isOpen={status}
-        handleChange={() => props.actionToggle({ index: props.index })}
-        {...props}
+        handleChange={() => actionToggle({ index: index })}
+        {...rest}
       />
     );
   };
 };
 
-export default withAccordion;
+const mapStateToProps = state => {
+  return {
+    accordion: state.panels
+  };
+};
+
+const mapDispatchToProps = {
+  actionToggle: actionPanelToggle
+};
+
+const ComposeWithAccordion = compose(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  ),
+  withAccordion
+);
+
+export default ComposeWithAccordion;
