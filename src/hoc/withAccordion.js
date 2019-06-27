@@ -1,7 +1,6 @@
 import React from "react";
 import { actionPanelToggle } from "../store/modules/panels";
 import { connect } from "react-redux";
-import ExpansionPanel from "../containers/ExpansionPanel";
 import { compose } from "redux";
 
 const withAccordion = ExpansionPanel => {

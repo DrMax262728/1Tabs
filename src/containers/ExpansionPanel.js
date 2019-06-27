@@ -5,7 +5,7 @@ import ExpansionPanelDetails from "../components/expansionPanels/ExpansionPanelD
 import withAccordion from "../hoc/withAccordion";
 import { ThemeContext } from "./SimpleTabs";
 
-const ExpansionPanel = ({ name, content, isOpen, handleChange, ...props }) => {
+const ExpansionPanel = ({ name, content, isOpen, handleChange }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <Panel style={theme} active={isOpen}>
