@@ -1,46 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import Content from "../components/tabs/Content";
 import Tab from "../components/tabs/Tab";
-import { dataTabs } from "../constants";
+import { dataTabs, themes } from "../constants";
 
 import Tabs from "../styles/tabs/Tabs";
 import TabList from "../styles/tabs/TabsStyled";
 import Check from "../components/tabs/Check";
+import WithTabs from "../renderProps/withTabs";
 
-class SimpleTabs extends React.Component {
-  state = {
-    value: "first"
-  };
+export const ThemeContext = React.createContext(themes.light);
 
-  handleChange = value => {
-    this.setState({ value });
-  };
-
-  render() {
-    return (
-      <Tabs>
-        <TabList>
-          {dataTabs.map(item => (
-            <Tab
-              label={item.label}
-              active={this.state.value === item.key}
-              value={item.key}
-              click={this.handleChange}
-              key={item.key}
-            />
-          ))}
-        </TabList>
-        {dataTabs.map(
-          item =>
-            this.state.value === item.key && (
-              <Content key={item.key}>
-                <Check content={item.content} />
-              </Content>
-            )
-        )}
-      </Tabs>
-    );
-  }
-}
+const SimpleTabs = () => {
+  const [theme, setTheme] = useState(themes.light);
+  return (
+    <WithTabs>
+      {(stateValue, handleChange) => (
+        <Tabs>
+          <TabList>
+            {dataTabs.map(item => (
+              <Tab
+                label={item.label}
+                active={stateValue === item.key}
+                value={item.key}
+                click={handleChange}
+                key={item.key}
+              />
+            ))}
+          </TabList>
+          <ThemeContext.Provider value={{ theme, setTheme }}>
+            {dataTabs.map(
+              item =>
+                stateValue === item.key && (
+                  <Content key={item.key}>
+                    <Check content={item.content} />
+                  </Content>
+                )
+            )}
+          </ThemeContext.Provider>
+        </Tabs>
+      )}
+    </WithTabs>
+  );
+};
 
 export default SimpleTabs;
